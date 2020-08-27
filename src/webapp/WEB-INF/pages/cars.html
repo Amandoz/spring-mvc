@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title th:if="${locale.equals('ru')}">МАШИНЫ</title>
+    <title th:if="${locale.equals('en')}">CARS</title>
+</head>
+<body>
+<h1 th:if="${locale.equals('ru')}">МАШИНЫ</h1>
+<h1 th:if="${locale.equals('en')}">CARS</h1>
+<div>
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th>mileage</th>
+            <th>price</th>
+        </tr>
+
+        <tr th:each="car: ${cars}">
+            <td th:utext="${car.getName()}">name</td>
+            <td th:utext="${car.getMileage()}">mileage</td>
+            <td th:utext="${car.getPrice()}">price</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
